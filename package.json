@@ -1,0 +1,39 @@
+{
+  "name": "chat-room",
+  "version": "1.0.0",
+  "description": "1-many demo chat room",
+  "main": "server.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint **/*.js --ignore-pattern client",
+    "test": "jest",
+    "build-dev": "npm run lint && npm run test",
+    "start-dev": "nodemon server",
+    "start": " node server",
+    "preinstall": "cd client && npm i",
+    "postinstall": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://"
+  },
+  "keywords": [
+    "chat",
+    "1-many",
+    "quick-chat"
+  ],
+  "author": "ashish sharma",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^4.2.0",
+    "moment": "^2.29.1",
+    "mongoose": "^5.11.8",
+    "path": "^0.12.7",
+    "socket.io": "^3.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.15.0",
+    "nodemon": "^2.0.6"
+  }
+}
