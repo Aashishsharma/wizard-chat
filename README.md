@@ -14,6 +14,8 @@ This app helps different wizards to chat online
 3. run npm install in the client folder
 4. replace local MonngoDB uri [here](models/chat.js) 
 
+Happy configuring :smiley: :blue_heart: 
+
 #### Install
 npm install
 
