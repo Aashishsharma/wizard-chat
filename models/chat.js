@@ -16,6 +16,7 @@ const chatSchema = new Schema({
   }]
 });
 
+// connect to the database
 async function connect() {
   await mongoose.connect(uri, {
     useNewUrlParser: true,
@@ -27,12 +28,16 @@ async function connect() {
   console.log('connected');
 }
 
+/**
+* Retrieve chat from DB
+* @return {Array} - chatHistory
+*/
 async function retrieveChat() {
   await connect();
   const MyModel = mongoose.model('chat', chatSchema);
   let chatHistory = [];
   const docs = await MyModel.find({});
-  //const docs = await MyModel.deleteMany({})  
+ 
   docs.forEach((doc) => {
     chatHistory = [...chatHistory, ...doc.chatsession]
   })
@@ -40,6 +45,10 @@ async function retrieveChat() {
   return chatHistory;
 }
 
+/**
+* Save chat from to DB
+* @param {Array} - current session chat
+*/
 async function saveChat(data) {
   await connect();
   const MyModel = mongoose.model('chat', chatSchema);
